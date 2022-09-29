@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Components/Header";
+import PostView from "./Components/PostView";
+import React, { useEffect, useState } from "react";
 
-function App() {
+const App = () => {
+  const [userInfo, setUserInfo] = useState([]);
+  const fetchData = () => {
+    fetch("http://localhost:3004/user")
+      .then((response) => response.json())
+      .then((data) => setUserInfo(data))
+      .catch((error) => console.log(error));
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {userInfo && <PostView data={userInfo} />}
     </div>
   );
-}
+};
 
 export default App;
