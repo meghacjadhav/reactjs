@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import LandingPage from "./LandingPage/LandingPage";
+import PostView from "./PostView/PostView";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 function App() {
+  const [userInfo, setUserInfo] = useState([]);
+  const fetchData = () => {
+    fetch("http://localhost:3004/user")
+      .then((response) => response.json())
+      .then((data) => setUserInfo(data))
+      .catch((error) => console.log(error));
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/post-view"
+            element={userInfo && <PostView data={userInfo} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
