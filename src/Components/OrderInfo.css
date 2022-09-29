@@ -1,0 +1,21 @@
+#mainOrder {
+  background-color: rgb(210, 208, 208);
+  border: 1px solid grey;
+  margin: 30px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+#date {
+  color: grey;
+}
+.orderTitle {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+.orderValue {
+  font-size: 18px;
+  padding: 10px;
+}

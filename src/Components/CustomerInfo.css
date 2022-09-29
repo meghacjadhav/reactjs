@@ -1,0 +1,11 @@
+#main {
+  border: 1px solid rgb(171, 171, 171);
+  margin: 30px;
+  padding: 10px;
+}
+.customerTitle {
+  font-weight: bold;
+}
+.customerValue {
+  font-weight: normal;
+}

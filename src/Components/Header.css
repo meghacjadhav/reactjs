@@ -1,0 +1,31 @@
+#mainHeader {
+  background-color: rgb(242, 236, 236);
+  border-bottom: 1px solid grey;
+  border-top: 2px double grey;
+  display: flex;
+  justify-content: space-between;
+}
+#headerLeft {
+  font-size: 20px;
+  color: gray;
+  margin-top: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.empid {
+  font-size: 20px;
+  color: gray;
+}
+.btn {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 10px 15px;
+  margin-top: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
